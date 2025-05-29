@@ -21,12 +21,11 @@ public class TestData {
 	String todayDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 	String TommorowDate = LocalDate.now().plusDays(1).format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
-
 	String[] EnglishCities = { "jeddah", "riyadh", "dubai", "Amman" };
 	String[] ArabicCities = { "دبي", "جدة", "عمان" };
 	int RandomEnglishCityIndex = rand.nextInt(EnglishCities.length);
 	int RandomArabicCityIndex = rand.nextInt(ArabicCities.length);
-
+	String RandomEnglishCity = EnglishCities[RandomEnglishCityIndex];
 	public void EnterTheWebsite() {
 
 		driver.get(URL);
