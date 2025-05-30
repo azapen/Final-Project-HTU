@@ -26,6 +26,7 @@ public class TestData {
 	int RandomEnglishCityIndex = rand.nextInt(EnglishCities.length);
 	int RandomArabicCityIndex = rand.nextInt(ArabicCities.length);
 	String RandomEnglishCity = EnglishCities[RandomEnglishCityIndex];
+
 	public void EnterTheWebsite() {
 
 		driver.get(URL);

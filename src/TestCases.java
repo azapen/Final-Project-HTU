@@ -1,7 +1,9 @@
 import static org.testng.Assert.assertEquals;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -91,6 +93,14 @@ public class TestCases extends TestData {
 
 		List<WebElement> ListOfSearchResult = driver.findElements(By.cssSelector(".b87c397a13.a3e0b4ffd1"));
 		ListOfSearchResult.get(0).click();
+		//Switching between The Two Tabs 
+		Set<String> handels = driver.getWindowHandles();
+		List<String> windowList = new ArrayList<>(handels);
+		driver.switchTo().window(windowList.get(1));
+		Thread.sleep(2000);
+		System.out.println(driver.getTitle());
+		driver.switchTo().window(windowList.get(0));
+		System.out.println(driver.getTitle());
 
 	}
 
