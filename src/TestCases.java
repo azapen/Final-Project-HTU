@@ -1,5 +1,6 @@
 import static org.testng.Assert.assertEquals;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -11,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -39,7 +41,8 @@ public class TestCases extends TestData {
 		// Choosing The First Option In the List
 		Destinations.get(0).click();
 	}
-	@Test(priority =2)
+
+	@Test(priority = 2)
 	public void CheckInDate_CheckOutDate() {
 
 		// Choosing Today's Date for Check_In And Tomorrow For Check_Out
@@ -52,6 +55,7 @@ public class TestCases extends TestData {
 		WebElement TomorrowsDateButton = driver.findElement(By.xpath("//span[@data-date='" + TommorowDate + "']"));
 		TomorrowsDateButton.click();
 	}
+
 	@Test(priority = 3)
 	public void Visitors_Rooms_Children() {
 		// Choosing numbers Of Visitors,Rooms And Children
@@ -77,7 +81,6 @@ public class TestCases extends TestData {
 		WebElement SearchButton = driver.findElement(By.cssSelector(
 				".de576f5064.b46cd7aad7.ced67027e5.dda427e6b5.e4f9ca4b0c.ca8e0b9533.cfd71fb584.a9d40b8d51"));
 		SearchButton.click();
-	
 
 		// Checking If The Result is correct
 		List<WebElement> ListOfLocationSearchResult = driver.findElements(By.xpath("//span[@data-testid='address']"));
@@ -86,7 +89,6 @@ public class TestCases extends TestData {
 		System.out.println(RandomEnglishCity);
 
 		Assert.assertTrue(FirstResultLocation.toLowerCase().contains(RandomEnglishCity.toLowerCase()));
-	
 
 		// 1.3 Search with Invalid Dates(Manual)
 
@@ -94,14 +96,15 @@ public class TestCases extends TestData {
 		WebElement CloseButton = driver.findElement(By.xpath("//button[@aria-label='Dismiss sign-in info.']"));
 		CloseButton.click();
 	}
-		@Test(priority =4)
-		public void NavigateToAccommodationDetails() throws InterruptedException {
+
+	@Test(priority = 4)
+	public void NavigateToAccommodationDetails() throws InterruptedException {
 		// Click on The First accommodation in results
 
 		List<WebElement> ListOfSearchResult = driver.findElements(By.cssSelector(".b87c397a13.a3e0b4ffd1"));
 		ListOfSearchResult.get(0).click();
-		
-		//Switching between Tabs 
+
+		// Switching between Tabs
 		Set<String> handels = driver.getWindowHandles();
 		List<String> windowList = new ArrayList<>(handels);
 		driver.switchTo().window(windowList.get(1));
@@ -112,4 +115,32 @@ public class TestCases extends TestData {
 
 	}
 
+	@Test(priority = 5)
+	public void setRandomPriceFilter() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1));
+
+		List<WebElement> SLiders = driver.findElements(By.className("fc835e65e6"));
+		WebElement sliderMin = SLiders.get(0);
+		WebElement sliderMax = SLiders.get(1);
+
+		// Safer random drag range since you said max is about 200
+		int moveMinBy = 10 + rand.nextInt(40); 
+		int moveMaxBy = -(10 + rand.nextInt(40)); 
+		move.clickAndHold(sliderMin).moveByOffset(moveMinBy, 0).release().perform();
+		Thread.sleep(500);
+		move.clickAndHold(sliderMax).moveByOffset(moveMaxBy, 0).release().perform();
+		Thread.sleep(500);
+
+	}
+
+	@Test(priority = 6)
+	public void sortByRating() throws InterruptedException {
+		WebElement sortDropdown = driver.findElement(By.className("cd46a6a263"));
+		sortDropdown.click();
+		Thread.sleep(1000); // Wait for options to load
+		// 2. Click the "Top Reviewed" option (bayesian_review_score)
+		WebElement topReviewed = driver.findElement(By.xpath("//button[@data-id='bayesian_review_score']"));
+		topReviewed.click();
+
+	}
 }
