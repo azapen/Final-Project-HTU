@@ -21,6 +21,8 @@ public class TestData {
 	JavascriptExecutor JS = (JavascriptExecutor) driver;
 	Random rand = new Random();
 	Actions move ;    
+	static int i=1;
+
 	String todayDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 	String TommorowDate = LocalDate.now().plusDays(1).format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
@@ -29,6 +31,17 @@ public class TestData {
 	int RandomEnglishCityIndex = rand.nextInt(EnglishCities.length);
 	int RandomArabicCityIndex = rand.nextInt(ArabicCities.length);
 	String RandomEnglishCity = EnglishCities[RandomEnglishCityIndex];
+	
+	String[] firstNames = { "Ali", "Omar", "Salma", "Laila", "Khalid", "Nour", "Mona", "Yousef", "Tariq", "Huda" };
+    String[] lastNames = { "Ahmad", "Hussein", "Saleh", "Jaber", "Nasser", "Zein", "Farah", "Khatib", "Darwish", "Najjar" };
+    String[] phoneNumbers = { "791234567", "781112233", "771234567", "782345678", "793456789", "771000111", "789876543", "777654321", "790123456", "781998877" };
+    String CardNumber="4242424242424242";
+    String ExpDate="12/28";
+    String cnn="123";
+    int FirstNameNumber= rand.nextInt(firstNames.length);
+    int LastNameNumber= rand.nextInt(lastNames.length);
+    int Numbers= rand.nextInt(phoneNumbers.length);
+
 	
 
 	public void EnterTheWebsite() {

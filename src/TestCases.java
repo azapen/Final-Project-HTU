@@ -124,8 +124,8 @@ public class TestCases extends TestData {
 		WebElement sliderMax = SLiders.get(1);
 
 		// Safer random drag range since you said max is about 200
-		int moveMinBy = 10 + rand.nextInt(40); 
-		int moveMaxBy = -(10 + rand.nextInt(40)); 
+		int moveMinBy = 10 + rand.nextInt(40);
+		int moveMaxBy = -(10 + rand.nextInt(40));
 		move.clickAndHold(sliderMin).moveByOffset(moveMinBy, 0).release().perform();
 		Thread.sleep(500);
 		move.clickAndHold(sliderMax).moveByOffset(moveMaxBy, 0).release().perform();
@@ -143,4 +143,103 @@ public class TestCases extends TestData {
 		topReviewed.click();
 
 	}
+
+	@Test(priority = 7)
+
+	public void BookingProcess() throws InterruptedException {
+		Thread.sleep(1000);
+		List<WebElement> cards = driver.findElements(By.xpath("//div[@data-testid='property-card']"));
+		int NumOfCards = rand.nextInt(cards.size());
+		System.out.println(NumOfCards);
+		WebElement Thecard = cards.get(NumOfCards).findElement(By.className("d755458b0f"));
+		Thread.sleep(1000);
+		Thecard.click();
+		Set<String> handle = driver.getWindowHandles();
+		List<String> Tab = new ArrayList<>(handle);
+		driver.switchTo().window(Tab.get(i));
+		Thread.sleep(3000);
+		i = i + 1;
+
+		System.out.println(driver.getTitle());
+		Thread.sleep(1000);
+		WebElement Reserve = driver.findElement(By.id("hp_book_now_button"));
+		Reserve.click();
+
+		List<WebElement> AllRooms = driver.findElements(By.className("hprt-table-room-select"));
+		WebElement TheSelectedRoom = AllRooms.get(rand.nextInt(1, AllRooms.size()));
+		WebElement rooms = TheSelectedRoom.findElement(By.cssSelector(".hprt-nos-select.js-hprt-nos-select"));
+		Select roomselect = new Select(rooms);
+		List<WebElement> options = rooms.findElements(By.tagName("option"));
+		roomselect.selectByIndex(rand.nextInt(options.size()));
+
+		WebElement resirving = driver.findElement(By.cssSelector(
+				".txp-bui-main-pp.bui-button.bui-button--primary.hp_rt_input.px--fw-cta.js-reservation-button"));
+		Thread.sleep(3000);
+
+		Reserve.click();
+
+	}
+
+	@Test(priority = 8)
+	public void PaymentDetails() throws InterruptedException {
+		WebElement Firstname = driver.findElement(By.name("firstname"));
+		WebElement Lastname = driver.findElement(By.name("lastname"));
+		WebElement email = driver.findElement(By.name("email"));
+		WebElement phone = driver.findElement(By.name("phoneNumber"));
+		WebElement booking = driver.findElement(By.name("book"));
+		String TheFirstName = firstNames[FirstNameNumber];
+		String TheLastName = lastNames[LastNameNumber];
+		String Email = TheFirstName + TheLastName + "@gmail.com";
+		Thread.sleep(1000);
+		Firstname.sendKeys(TheFirstName);
+		Thread.sleep(1000);
+
+		Lastname.sendKeys(TheLastName);
+		Thread.sleep(1000);
+
+		email.sendKeys(Email);
+		Thread.sleep(1000);
+
+		phone.sendKeys(phoneNumbers[Numbers]);
+		Thread.sleep(1000);
+
+		booking.click();
+
+	}
+
+	@Test(priority = 9)
+	public void CorrectPayment() throws InterruptedException {
+	    Thread.sleep(1000);
+
+	    // Case: If the element with ID ":r6:" is displayed, just click the book button
+	    if (driver.findElements(By.id(":r6:")).size() > 0 && driver.findElement(By.id(":r6:")).isDisplayed()) {
+	        driver.findElement(By.name("book")).click();
+	    } else {
+	        Thread.sleep(10000);
+
+	        // Check if the iframe with title 'Payment' is present before switching
+	        List<WebElement> paymentIframes = driver.findElements(By.cssSelector("iframe[title='Payment']"));
+	        if (!paymentIframes.isEmpty()) {
+	            driver.switchTo().frame(paymentIframes.get(0));
+	            JS.executeScript("window.scrollTo(0,500)");
+
+	            WebElement cardnumber = driver.findElement(By.name("number"));
+	            WebElement expdate = driver.findElement(By.name("expirationDate"));
+	            WebElement cvc = driver.findElement(By.name("cvc"));
+
+	            Thread.sleep(2000);
+	            cardnumber.sendKeys(CardNumber);
+	            Thread.sleep(2000);
+	            expdate.sendKeys(ExpDate);
+	            Thread.sleep(2000);
+	            cvc.sendKeys(cnn);
+
+	            driver.switchTo().defaultContent(); // switch back to the main content
+	        }
+
+	        // Proceed with clicking the book button after iframe handling
+	        driver.findElement(By.name("book")).click();
+	    }
+	}
+
 }

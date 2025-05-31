@@ -1,40 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
+<testng-results ignored="0" total="9" passed="9" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-05-30T16:28:45 GMT+03:00" name="Default suite" finished-at="2025-05-30T16:29:59 GMT+03:00" duration-ms="74247">
+  <suite started-at="2025-05-31T16:16:13 GMT+03:00" name="Default suite" finished-at="2025-05-31T16:18:33 GMT+03:00" duration-ms="140344">
     <groups>
     </groups>
-    <test started-at="2025-05-30T16:28:45 GMT+03:00" name="Default test" finished-at="2025-05-30T16:29:59 GMT+03:00" duration-ms="74247">
+    <test started-at="2025-05-31T16:16:13 GMT+03:00" name="Default test" finished-at="2025-05-31T16:18:33 GMT+03:00" duration-ms="140344">
       <class name="TestCases">
-        <test-method is-config="true" signature="SetUp()[pri:0, instance:TestCases@5911e990]" started-at="2025-05-30T16:28:45 GMT+03:00" name="SetUp" finished-at="2025-05-30T16:28:55 GMT+03:00" duration-ms="9613" status="PASS">
+        <test-method is-config="true" signature="SetUp()[pri:0, instance:TestCases@24d09c1]" started-at="2025-05-31T16:16:13 GMT+03:00" name="SetUp" finished-at="2025-05-31T16:16:23 GMT+03:00" duration-ms="9659" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SetUp -->
-        <test-method signature="Search_for_Accommodations()[pri:1, instance:TestCases@5911e990]" started-at="2025-05-30T16:28:55 GMT+03:00" name="Search_for_Accommodations" finished-at="2025-05-30T16:29:03 GMT+03:00" duration-ms="7685" status="PASS">
+        <test-method signature="Search_for_Accommodations()[pri:1, instance:TestCases@24d09c1]" started-at="2025-05-31T16:16:23 GMT+03:00" name="Search_for_Accommodations" finished-at="2025-05-31T16:16:28 GMT+03:00" duration-ms="4987" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Search_for_Accommodations -->
-        <test-method signature="CheckInDate_CheckOutDate()[pri:2, instance:TestCases@5911e990]" started-at="2025-05-30T16:29:03 GMT+03:00" name="CheckInDate_CheckOutDate" finished-at="2025-05-30T16:29:04 GMT+03:00" duration-ms="1662" status="PASS">
+        <test-method signature="CheckInDate_CheckOutDate()[pri:2, instance:TestCases@24d09c1]" started-at="2025-05-31T16:16:28 GMT+03:00" name="CheckInDate_CheckOutDate" finished-at="2025-05-31T16:16:30 GMT+03:00" duration-ms="1738" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CheckInDate_CheckOutDate -->
-        <test-method signature="Visitors_Rooms_Children()[pri:3, instance:TestCases@5911e990]" started-at="2025-05-30T16:29:04 GMT+03:00" name="Visitors_Rooms_Children" finished-at="2025-05-30T16:29:24 GMT+03:00" duration-ms="20171" status="PASS">
+        <test-method signature="Visitors_Rooms_Children()[pri:3, instance:TestCases@24d09c1]" started-at="2025-05-31T16:16:30 GMT+03:00" name="Visitors_Rooms_Children" finished-at="2025-05-31T16:16:49 GMT+03:00" duration-ms="19722" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Visitors_Rooms_Children -->
-        <test-method signature="NavigateToAccommodationDetails()[pri:4, instance:TestCases@5911e990]" started-at="2025-05-30T16:29:24 GMT+03:00" name="NavigateToAccommodationDetails" finished-at="2025-05-30T16:29:44 GMT+03:00" duration-ms="19151" status="PASS">
+        <test-method signature="NavigateToAccommodationDetails()[pri:4, instance:TestCases@24d09c1]" started-at="2025-05-31T16:16:50 GMT+03:00" name="NavigateToAccommodationDetails" finished-at="2025-05-31T16:17:08 GMT+03:00" duration-ms="18207" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- NavigateToAccommodationDetails -->
-        <test-method signature="setRandomPriceFilter()[pri:5, instance:TestCases@5911e990]" started-at="2025-05-30T16:29:44 GMT+03:00" name="setRandomPriceFilter" finished-at="2025-05-30T16:29:51 GMT+03:00" duration-ms="7511" status="PASS">
+        <test-method signature="setRandomPriceFilter()[pri:5, instance:TestCases@24d09c1]" started-at="2025-05-31T16:17:08 GMT+03:00" name="setRandomPriceFilter" finished-at="2025-05-31T16:17:14 GMT+03:00" duration-ms="6346" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setRandomPriceFilter -->
-        <test-method signature="sortByRating()[pri:6, instance:TestCases@5911e990]" started-at="2025-05-30T16:29:52 GMT+03:00" name="sortByRating" finished-at="2025-05-30T16:29:59 GMT+03:00" duration-ms="7203" status="PASS">
+        <test-method signature="sortByRating()[pri:6, instance:TestCases@24d09c1]" started-at="2025-05-31T16:17:14 GMT+03:00" name="sortByRating" finished-at="2025-05-31T16:17:17 GMT+03:00" duration-ms="2708" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- sortByRating -->
+        <test-method signature="BookingProcess()[pri:7, instance:TestCases@24d09c1]" started-at="2025-05-31T16:17:17 GMT+03:00" name="BookingProcess" finished-at="2025-05-31T16:17:32 GMT+03:00" duration-ms="15481" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BookingProcess -->
+        <test-method signature="PaymentDetails()[pri:8, instance:TestCases@24d09c1]" started-at="2025-05-31T16:17:32 GMT+03:00" name="PaymentDetails" finished-at="2025-05-31T16:17:53 GMT+03:00" duration-ms="20622" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- PaymentDetails -->
+        <test-method signature="CorrectPayment()[pri:9, instance:TestCases@24d09c1]" started-at="2025-05-31T16:17:53 GMT+03:00" name="CorrectPayment" finished-at="2025-05-31T16:18:33 GMT+03:00" duration-ms="40500" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CorrectPayment -->
       </class> <!-- TestCases -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

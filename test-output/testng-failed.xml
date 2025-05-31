@@ -5,7 +5,15 @@
     <classes>
       <class name="TestCases">
         <methods>
+          <include name="BookingProcess"/>
+          <include name="CheckInDate_CheckOutDate"/>
+          <include name="sortByRating"/>
+          <include name="NavigateToAccommodationDetails"/>
+          <include name="CorrectPayment"/>
+          <include name="Visitors_Rooms_Children"/>
           <include name="Search_for_Accommodations"/>
+          <include name="setRandomPriceFilter"/>
+          <include name="PaymentDetails"/>
           <include name="SetUp"/>
         </methods>
       </class> <!-- TestCases -->
